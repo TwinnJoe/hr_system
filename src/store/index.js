@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-const baseURL = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL;
 
 export default createStore({
   state: {
@@ -32,7 +32,7 @@ export default createStore({
     // EMPLOYEES
     async AllEmployees({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/employees");
+        const res = await fetch(`${API}/api/employees`);
         if (!res.ok) throw new Error("Failed to fetch employees");
         commit("setEmployees", await res.json());
       } catch (error) {
@@ -41,7 +41,7 @@ export default createStore({
     },
     async getEmployee(_, employeeId) {
       try {
-        const res = await fetch(`http://localhost:3000/api/employees/${employeeId}`);
+        const res = await fetch(`${API}/api/employees/${employeeId}`);
         if (!res.ok) throw new Error("Failed to fetch employee");
         return await res.json();
       } catch (error) {
@@ -51,7 +51,7 @@ export default createStore({
     },
     async addEmployee({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/employees", {
+        await fetch(`${API}/api/employees`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -63,7 +63,7 @@ export default createStore({
     },
     async updateEmployee({ dispatch }, payload) {
       try {
-        await fetch(`http://localhost:3000/api/employees/${payload.employeeId}`, {
+        await fetch(`${API}/api/employees/${payload.employeeId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -75,7 +75,7 @@ export default createStore({
     },
     async deleteEmployee({ dispatch }, employeeId) {
       try {
-        await fetch(`http://localhost:3000/api/employees/${employeeId}`, {
+        await fetch(`${API}/api/employees/${employeeId}`, {
           method: "DELETE",
         });
         dispatch("AllEmployees");
@@ -87,7 +87,7 @@ export default createStore({
     // ATTENDANCE
     async AllAttendance({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/attendance");
+        const res = await fetch(`${API}/api/attendance`);
         if (!res.ok) throw new Error("Failed to fetch attendance");
         commit("setAttendance", await res.json());
       } catch (error) {
@@ -96,7 +96,7 @@ export default createStore({
     },
     async getAttendance(_, employeeId) {
       try {
-        const res = await fetch(`http://localhost:3000/api/attendance/${employeeId}`);
+        const res = await fetch(`${API}/api/attendance/${employeeId}`);
         if (!res.ok) throw new Error("Failed to fetch attendance record");
         return await res.json();
       } catch (error) {
@@ -106,7 +106,7 @@ export default createStore({
     },
     async addAttendance({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/attendance", {
+        await fetch(`${API}/api/attendance`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -123,7 +123,7 @@ export default createStore({
       ...payload,
       date: new Date(payload.date).toISOString().slice(0, 10), // 'YYYY-MM-DD'
     };
-        await fetch(`http://localhost:3000/api/attendance/${payload.employeeId}`, {
+        await fetch(`${API}/api/attendance/${payload.employeeId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formattedPayload),
@@ -135,7 +135,7 @@ export default createStore({
     },
     async deleteAttendance({ dispatch }, employeeId) {
       try {
-        await fetch(`http://localhost:3000/api/attendance/${employeeId}`, {
+        await fetch(`${API}/api/attendance/${employeeId}`, {
           method: "DELETE",
         });
         dispatch("AllAttendance");
@@ -147,7 +147,7 @@ export default createStore({
     // PAYROLL
     async AllPayroll({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/payroll");
+        const res = await fetch(`${API}/api/payroll`);
         if (!res.ok) throw new Error("Failed to fetch payroll");
         commit("setPayroll", await res.json());
       } catch (error) {
@@ -156,7 +156,7 @@ export default createStore({
     },
     async getPayroll(_, employeeId) {
       try {
-        const res = await fetch(`http://localhost:3000/api/payroll/${employeeId}`);
+        const res = await fetch(`${API}/api/payroll/${employeeId}`);
         if (!res.ok) throw new Error("Failed to fetch payroll record");
         return await res.json();
       } catch (error) {
@@ -166,7 +166,7 @@ export default createStore({
     },
     async addPayroll({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/payroll", {
+        await fetch(`${API}/api/payroll`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -178,7 +178,7 @@ export default createStore({
     },
     async updatePayroll({ dispatch }, payload) {
       try {
-        await fetch(`http://localhost:3000/api/payroll/${payload.employeeId}`, {
+        await fetch(`${API}/api/payroll/${payload.employeeId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -190,7 +190,7 @@ export default createStore({
     },
     async deletePayroll({ dispatch }, employeeId) {
       try {
-        await fetch(`http://localhost:3000/api/payroll/${employeeId}`, {
+        await fetch(`${API}/api/payroll/${employeeId}`, {
           method: "DELETE",
         });
         dispatch("AllPayroll");
@@ -200,7 +200,7 @@ export default createStore({
     },
     async sendPayslip(_, payload) {
   try {
-    const res = await axios.post("http://localhost:3000/api/payslip/send", payload);
+    const res = await axios.post(`${API}/api/payslip/send`, payload);
     return res.data;
   } catch (error) {
     console.error("Error sending payslip:", error);
@@ -211,7 +211,7 @@ export default createStore({
     // LEAVE REQUESTS
     async AllLeaveRequests({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/leave_requests");
+        const res = await fetch(`${API}/api/leave_requests`);
         if (!res.ok) throw new Error("Failed to fetch leave requests");
         commit("setLeaveRequests", await res.json());
       } catch (error) {
@@ -220,7 +220,7 @@ export default createStore({
     },
     async getLeaveRequest(_, id) {
       try {
-        const res = await fetch(`http://localhost:3000/api/leave_requests/${id}`);
+        const res = await fetch(`${API}/api/leave_requests/${id}`);
         if (!res.ok) throw new Error("Failed to fetch leave request");
         return await res.json();
       } catch (error) {
@@ -230,7 +230,7 @@ export default createStore({
     },
     async addLeaveRequest({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/leave_requests", {
+        await fetch(`${API}/api/leave_requests`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -247,7 +247,7 @@ export default createStore({
       ...payload,
       date: new Date(payload.date).toISOString().slice(0, 10), // 'YYYY-MM-DD'
     };
-        await fetch(`http://localhost:3000/api/leave_requests/${payload.employeeId}`, {
+        await fetch(`${API}/api/leave_requests/${payload.employeeId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formattedPayload),
@@ -259,7 +259,7 @@ export default createStore({
     },
     async deleteLeaveRequest({ dispatch }, id) {
       try {
-        await fetch(`http://localhost:3000/leave_requests/${id}`, {
+        await fetch(`${API}/leave_requests/${id}`, {
           method: "DELETE",
         });
         dispatch("AllLeaveRequests");
@@ -271,7 +271,7 @@ export default createStore({
     // ADMINS
     async AllAdmins({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/admin");
+        const res = await fetch(`${API}/api/admin`);
         if (!res.ok) throw new Error("Failed to fetch admins");
         commit("setAdmins", await res.json());
       } catch (error) {
@@ -280,7 +280,7 @@ export default createStore({
     },
     async getAdmin(_, adminId) {
       try {
-        const res = await fetch(`http://localhost:3000/api/admin/${adminId}`);
+        const res = await fetch(`${API}/api/admin/${adminId}`);
         if (!res.ok) throw new Error("Failed to fetch admin");
         return await res.json();
       } catch (error) {
@@ -290,7 +290,7 @@ export default createStore({
     },
     async addAdmin({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/admin", {
+        await fetch(`${API}/api/admin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -302,7 +302,7 @@ export default createStore({
     },
     async updateAdmin({ dispatch }, payload) {
       try {
-        await fetch(`http://localhost:3000/api/admin/${payload.adminId}`, {
+        await fetch(`${API}/api/admin/${payload.adminId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -314,7 +314,7 @@ export default createStore({
     },
     async deleteAdmin({ dispatch }, adminId) {
       try {
-        await fetch(`http://localhost:3000/api/admin/${adminId}`, {
+        await fetch(`${API}/api/admin/${adminId}`, {
           method: "DELETE",
         });
         dispatch("AllAdmins");
@@ -326,7 +326,7 @@ export default createStore({
     // AUTH
     async loginUser({ commit }, credentials) {
       try {
-        const res = await axios.post("http://localhost:3000/api/admin/login", credentials);
+        const res = await axios.post(`${API}/api/admin/login`, credentials);
         const { token, user } = res.data;
         localStorage.setItem("token", token);
         commit("setToken", token);
