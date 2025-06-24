@@ -51,7 +51,7 @@
                   <td>{{ employee.name }}</td>
                   <td>{{ employee.position }}</td>
                   <td>{{ employee.department }}</td>
-                  <td>${{ formatSalary(employee.salary) }}</td>
+                  <td>R{{ formatSalary(employee.salary) }}</td>
                   <td>{{ employee.employmentHistory }}</td>
                   <td>{{ employee.contact }}</td>
                   <td class="actions">
