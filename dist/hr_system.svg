@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="100" cy="100" r="90" fill="#4A90E2" opacity="0.1"/>
+    
+    <!-- Briefcase (Symbolizing HR Management) -->
+    <rect x="70" y="80" width="60" height="40" rx="5" fill="#4A90E2" stroke="#4A90E2" stroke-width="3"/>
+    <rect x="60" y="90" width="80" height="10" rx="3" fill="#4A90E2" stroke="#4A90E2" stroke-width="3"/>
+    
+    <!-- People Silhouettes (Symbolizing Employees) -->
+    <circle cx="85" cy="60" r="10" fill="#4A90E2"/>
+    <circle cx="115" cy="60" r="10" fill="#4A90E2"/>
+    <path d="M85 70C85 80 90 85 100 85C110 85 115 80 115 70" stroke="#4A90E2" stroke-width="3" fill="none"/>
+    
+    <!-- Text (Optional) -->
+    <text x="100" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="#4A90E2" font-weight="bold">HR SYSTEM</text>
+</svg>
