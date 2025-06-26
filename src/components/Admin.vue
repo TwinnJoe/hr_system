@@ -109,13 +109,14 @@ export default {
 =========================== */
 .app-container,
 .login-container {
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   background-color: #f5f5f5;
   padding: 1rem;
-  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent scroll if not needed */
 }
 
 /* ===========================
