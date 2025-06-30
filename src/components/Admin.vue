@@ -73,7 +73,7 @@ export default {
     },
     async validateLogin() {
       try {
-        const response = await axios.post(`${API}/api/admin/login`, {
+        const response = await axios.post(`${API}/api/users/login`, {
           username: this.username,
           password: this.password,
         });
