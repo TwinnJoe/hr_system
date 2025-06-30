@@ -1,6 +1,6 @@
 # HR Management System (Admin Dashboard)
 
-[![Live Demo](https://img.shields.io/badge/demo-online-orange)](https://your-demo-link.com)
+[![Live Demo](https://img.shields.io/badge/demo-online-orange)](https://admin-hrsystem.netlify.app/)
 
 A full-stack Human Resource Management System built with **Vite + Vue 3** on the frontend and **Node.js + Express + MySQL** on the backend. The system is designed **exclusively for admin users** to manage employee records, payroll, leave requests, and attendance tracking in a responsive, easy-to-use interface.
 
