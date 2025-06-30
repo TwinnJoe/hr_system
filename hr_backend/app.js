@@ -23,11 +23,6 @@ app.use("/api/leave_requests", leaveRequestRoutes);
 app.use('/api/payslip', payslipRouter);
 app.use("/api/admin", adminRouter);
 
-if (!fs.existsSync(caCertPath)) {
-  console.error("❌ CA certificate not found at:", caCertPath);
-  process.exit(1);
-}
-
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
