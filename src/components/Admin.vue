@@ -109,16 +109,17 @@ export default {
 =========================== */
 .app-container,
 .login-container {
-  min-height: 100vh;
   height: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #f5f5f5;
   padding: 1rem;
   box-sizing: border-box;
   overflow: hidden;
+  position: fixed;
+  inset: 0;
 }
 
 /* ===========================
