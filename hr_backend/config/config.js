@@ -9,8 +9,9 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   ssl: {
+    // Try this approach for Aiven
     rejectUnauthorized: true,
-    ca: Buffer.from(process.env.DB_CA_CERT, "base64").toString("utf-8")
+    ca: process.env.DB_CA_CERT ? Buffer.from(process.env.DB_CA_CERT, "base64").toString("utf-8") : undefined
   },
 });
 
