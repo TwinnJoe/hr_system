@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for hr-system-hfm22w on 2025-08-24T07:58:17Z
+# fly.toml app configuration file generated for hr-system-lg4ulq on 2025-08-24T11:41:54Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'hr-system-hfm22w'
+app = 'hr-system-lg4ulq'
 primary_region = 'jnb'
 
 [build]
