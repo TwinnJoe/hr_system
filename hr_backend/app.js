@@ -12,7 +12,13 @@ import adminRouter from "./Routes/adminRouter.js";
 
 const app = express();
 app.use(express.static("public"));
-app.use(cors());
+// Enable CORS for Netlify frontend
+const FRONTEND_URL = process.env.FRONTEND_URL || "*"; // for testing you can use "*"
+app.use(cors({
+  origin: FRONTEND_URL,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 
