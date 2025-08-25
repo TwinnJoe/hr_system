@@ -271,7 +271,7 @@ export default createStore({
     // ADMINS
     async AllAdmins({ commit }) {
       try {
-        const res = await fetch(`${API}/api/admin`);
+        const res = await fetch(`${API}admin`);
         if (!res.ok) throw new Error("Failed to fetch admins");
         commit("setAdmins", await res.json());
       } catch (error) {
@@ -280,7 +280,7 @@ export default createStore({
     },
     async getAdmin(_, adminId) {
       try {
-        const res = await fetch(`${API}/api/admin/${adminId}`);
+        const res = await fetch(`${API}admin/${adminId}`);
         if (!res.ok) throw new Error("Failed to fetch admin");
         return await res.json();
       } catch (error) {
@@ -290,7 +290,7 @@ export default createStore({
     },
     async addAdmin({ dispatch }, payload) {
       try {
-        await fetch(`${API}/api/admin`, {
+        await fetch(`${API}admin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -302,7 +302,7 @@ export default createStore({
     },
     async updateAdmin({ dispatch }, payload) {
       try {
-        await fetch(`${API}/api/admin/${payload.adminId}`, {
+        await fetch(`${API}admin/${payload.adminId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -314,7 +314,7 @@ export default createStore({
     },
     async deleteAdmin({ dispatch }, adminId) {
       try {
-        await fetch(`${API}/api/admin/${adminId}`, {
+        await fetch(`${API}admin/${adminId}`, {
           method: "DELETE",
         });
         dispatch("AllAdmins");
@@ -326,7 +326,7 @@ export default createStore({
     // AUTH
     async loginUser({ commit }, credentials) {
       try {
-        const res = await axios.post(`${API}/api/admin/login`, credentials);
+        const res = await axios.post(`${API}admin/login`, credentials);
         const { token, user } = res.data;
         localStorage.setItem("token", token);
         commit("setToken", token);
