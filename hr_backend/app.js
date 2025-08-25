@@ -4,12 +4,12 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import employeeRouter from "./routes/employee.js";
-import attendanceRouter from "./routes/attendance.js";
-import payrollRouter from "./routes/payroll.js";
-import leaveRequestRoutes from "./routes/leaveRequests.js";
-import payslipRouter from "./routes/payslip.js";
-import adminRouter from "./routes/admin.js";
+import employeeRouter from "./routes/employeeRouter.js";
+import attendanceRouter from "./routes/attendanceRouter.js";
+import payrollRouter from "./routes/payrollRouter.js";
+import leaveRequestRoutes from "./routes/leaveRequestRoutes.js";
+import payslipRouter from "./routes/payslipRouter.js";
+import adminRouter from "./routes/adminRouter.js";
 
 const app = express();
 
