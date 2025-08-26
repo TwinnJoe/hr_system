@@ -12,6 +12,7 @@
 
     <!-- Admin Login View -->
     <div v-else class="login-container">
+      <p class="logins">Username:Admin | Password:Admin1 </p>
       <form @submit.prevent="validateLogin">
         <h2 class="title">Administrator</h2>
         <div class="input-group">
@@ -145,7 +146,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-.description {
+.description,.logins {
   font-size: 1rem;
   color: #666666;
   margin-bottom: 1.5rem;
