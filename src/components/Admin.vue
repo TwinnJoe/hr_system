@@ -12,8 +12,8 @@
 
     <!-- Admin Login View -->
     <div v-else class="login-container">
-      <p class="logins">Username:Admin | Password:Admin1 </p>
       <form @submit.prevent="validateLogin">
+        <p class="logins">Username:Admin | Password:Admin1</p>
         <h2 class="title">Administrator</h2>
         <div class="input-group">
           <input
